@@ -10,6 +10,7 @@ let answer = '';
 let idx = 0;
 let userName = prompt('What is your name?');
 
+console.log('User entered: ' + userName + ' for name.');
 alert('Hello ' + userName + '! Let\'s play a guessing game about me.');
 
 for (let i = 0; i < questionBank.length; i++) {
@@ -29,3 +30,4 @@ for (let i = 0; i < questionBank.length; i++) {
     i--;
   }
 }
+
