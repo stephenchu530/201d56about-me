@@ -31,3 +31,9 @@ for (let i = 0; i < questionBank.length; i++) {
   }
 }
 
+let listItemsQuestions = '';
+
+for (let i = 0; i < questionBank.length; i++) {
+  listItemsQuestions += '<li>' + questionBank[i] + ' YES!</li>\n'
+}
+document.getElementById('questions').innerHTML = listItemsQuestions;
