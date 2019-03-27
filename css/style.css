@@ -1,7 +1,12 @@
+body {
+  background-color: pink;
+}
 h1 {
   color: red;
 }
-
 h2 {
   color: blue;
+}
+li {
+  margin-left: 20px;
 }
