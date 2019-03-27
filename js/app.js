@@ -16,6 +16,7 @@ let correctAnswers = 0;
 
 
 // 5 yes no questionaire; FYI: all answers are yes btw
+console.log('*** Starting 5 yes/no questions game');
 let questionBank = [
   'Do you think I like the color black?',
   'Could I possibly like to eat sushi?',
@@ -67,3 +68,19 @@ for (let i = 0; i < questionBank.length; i++) {
 }
 document.getElementById('fivequestionlist').innerHTML = listItemsQuestions;
 alert('You got ' + correctAnswers + ' out of 5 correct so far!');
+
+
+//Favorite number game
+console.log('*** Starting guess number game');
+let maxNumber = 100;
+let maxGuesses = 4;
+let guess = 0;
+let response = null;
+//let randomNumber = Math.floor(Math.random() * Math.floor(maxNumber + 1));
+let randomNumber = 5;
+alert('Let\'s play guess my number game!');
+while (response !== randomNumber && (maxGuesses > 0)) {
+  response = prompt('Guess my number between 0 and ' + maxNumber + ' (' + maxGuesses + ' left):');
+  console.log('User responded with: ' + response);
+  maxGuesses--;
+}
