@@ -1,10 +1,25 @@
 'use strict';
 
 // All answers are yes!!!
-let questionBank = ['Do you think I like the color black?', 'Could I possibly like to eat sushi?', 'Was I in the Air Force?', 'Do I like to watch cooking shows?', 'Is sleeping my favorite activity?'];
+let questionBank = [
+  'Do you think I like the color black?',
+  'Could I possibly like to eat sushi?',
+  'Was I in the Air Force?',
+  'Do I like to watch cooking shows?',
+  'Is sleeping my favorite activity?'
+];
 
-let userFeedbackBank = ['Wrong!', 'Right!', 'Not an acceptable response!'];
-let possibleAns = ['y', 'n', 'yes', 'no'];
+let userFeedbackBank = [
+  'Wrong!',
+  'Right!',
+  'Not an acceptable response!'
+];
+let possibleAns = [
+  'y',
+  'n',
+  'yes',
+  'no'
+];
 let cue = ' (y/n/yes/no):';
 let answer = '';
 let idx = 0;
@@ -34,6 +49,6 @@ for (let i = 0; i < questionBank.length; i++) {
 let listItemsQuestions = '';
 
 for (let i = 0; i < questionBank.length; i++) {
-  listItemsQuestions += '<li>' + questionBank[i] + ' YES!</li>\n'
+  listItemsQuestions += '<li>' + questionBank[i] + ' YES!</li>\n';
 }
 document.getElementById('questions').innerHTML = listItemsQuestions;
