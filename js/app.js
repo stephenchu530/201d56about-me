@@ -11,9 +11,11 @@ do {
 alert('Hello ' + userName + '! Let\'s play a guessing game about me. We\'ll start with 5 yes/no questions about me!');
 
 
+// Keeps track of all correct responses
 let correctAnswers = 0;
 
-// 5 yes no questions; All answers are yes btw
+
+// 5 yes no questionaire; FYI: all answers are yes btw
 let questionBank = [
   'Do you think I like the color black?',
   'Could I possibly like to eat sushi?',
@@ -42,7 +44,7 @@ for (let i = 0; i < questionBank.length; i++) {
   if (answer) {
     idx = possibleAns.indexOf(answer.toLowerCase());
   }
-  if (answer && idx + 1) {
+  if (answer && (idx + 1)) {
     if (idx % 2) {
       alert(userFeedbackBank[0]);
     } else {
@@ -64,3 +66,4 @@ for (let i = 0; i < questionBank.length; i++) {
   listItemsQuestions += '<li>' + questionBank[i] + ' YES!</li>\n';
 }
 document.getElementById('fivequestionlist').innerHTML = listItemsQuestions;
+alert('You got ' + correctAnswers + ' out of 5 correct so far!');
