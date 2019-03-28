@@ -54,7 +54,6 @@ for (let i = 0; i < questionBank.length; i++) {
   }
 }
 
-
 // Display answers to 5 questions and correct answers on the page
 let listItemsQuestions = '';
 
