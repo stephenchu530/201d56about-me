@@ -85,7 +85,7 @@ while (parseInt(response) !== randomNumber && (maxGuesses > 0)) {
     }
     maxGuesses--;
     if (maxGuesses === 1) {
-          guessWord = ' guess'
+      guessWord = ' guess';
     }
   } else {
     alert('Please enter a number!');
@@ -108,7 +108,6 @@ alert('You got ' + correctAnswers + ' out of 6 correct so far!');
 // Mulitple choice places visited question
 console.log('*** Starting multiple choice game');
 let placesVisited = ['Nice', 'Stuggart', 'Taipei'];
-let isRight = false;
 response = null;
 maxGuesses = 6;
 guessWord = ' guesses';
@@ -123,7 +122,7 @@ while (!response && (maxGuesses > 0)) {
         response = null;
         maxGuesses--;
         if (maxGuesses === 1) {
-          guessWord = ' guess'
+          guessWord = ' guess';
         }
         break;
       }
