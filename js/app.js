@@ -72,6 +72,7 @@ let maxGuesses = 4;
 let response = null;
 let randomNumber = Math.floor(Math.random() * Math.floor(maxNumber + 1));
 alert('Let\'s play guess my number game!');
+
 while (parseInt(response) !== randomNumber && (maxGuesses > 0)) {
   response = prompt('Guess my number between 0 and ' + maxNumber + ' (' + maxGuesses + ' left):');
   console.log('User guessed: ' + response);
@@ -87,6 +88,8 @@ while (parseInt(response) !== randomNumber && (maxGuesses > 0)) {
     alert('Please enter a number!');
   }
 }
+
+// Results to guess the number game
 if (parseInt(response) === randomNumber) {
   alert('You guessed the number!');
   correctAnswers++;
@@ -100,3 +103,10 @@ alert('You got ' + correctAnswers + ' out of 6 correct so far!');
 
 
 // Mulitple choice places visited question
+console.log('*** Starting multiple choice game');
+let placesVisited = ['France', 'Japan', 'Germany', 'Italy', 'China', 'Taiwan'];
+let answers = '';
+for (let i = 0; i < placesVisited.length; i++) {
+  answers += (i + 1) + ' ' + placesVisited[i] + '\n';
+}
+alert(answers);
