@@ -1,8 +1,12 @@
+header {
+  background-image: url('../img/bright-countryside-dawn-302804.jpg');
+}
 body {
-  background-color: pink;
+  background-color: wheat;
 }
 h1 {
-  color: red;
+  color: lightcoral;
+  font-weight: bolder;
   font-size: 2em;
 }
 h2 {
