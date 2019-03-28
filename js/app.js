@@ -24,11 +24,6 @@ let questionBank = [
   'Do I like to watch cooking shows?',
   'Is sleeping my favorite activity?'
 ];
-let userFeedbackBank = [
-  'Wrong!',
-  'Right!',
-  'Not an acceptable response!'
-];
 let possibleAns = [
   'y',
   'n',
@@ -47,13 +42,13 @@ for (let i = 0; i < questionBank.length; i++) {
   }
   if (answer && (idx + 1)) {
     if (idx % 2) {
-      alert(userFeedbackBank[0]);
+      alert('Wrong!');
     } else {
-      alert(userFeedbackBank[1]);
+      alert('Right!');
       correctAnswers++;
     }
   } else {
-    alert(userFeedbackBank[2]);
+    alert('Not an acceptable response!');
     console.log('Not acceptable. Repeating the same question.');
     i--;
   }
@@ -72,15 +67,36 @@ alert('You got ' + correctAnswers + ' out of 5 correct so far!');
 
 //Favorite number game
 console.log('*** Starting guess number game');
-let maxNumber = 100;
+let maxNumber = 15;
 let maxGuesses = 4;
-let guess = 0;
 let response = null;
-//let randomNumber = Math.floor(Math.random() * Math.floor(maxNumber + 1));
-let randomNumber = 5;
+let randomNumber = Math.floor(Math.random() * Math.floor(maxNumber + 1));
 alert('Let\'s play guess my number game!');
-while (response !== randomNumber && (maxGuesses > 0)) {
+while (parseInt(response) !== randomNumber && (maxGuesses > 0)) {
   response = prompt('Guess my number between 0 and ' + maxNumber + ' (' + maxGuesses + ' left):');
-  console.log('User responded with: ' + response);
-  maxGuesses--;
+  console.log('User guessed: ' + response);
+  if (response && !isNaN(response)) {
+    if (parseInt(response) > randomNumber) {
+      alert('Mmmm... the number is lower');
+    }
+    if (parseInt(response) < randomNumber) {
+      alert('Actually, the number is higher');
+    }
+    maxGuesses--;
+  } else {
+    alert('Please enter a number!');
+  }
 }
+if (parseInt(response) === randomNumber) {
+  alert('You guessed the number!');
+  correctAnswers++;
+} else {
+  alert('You couldn\'t guess the number. The number was ' + randomNumber);
+}
+
+// Displays results of the guess number game
+document.getElementById('guessnumberlist').innerHTML = '<li>The number to guess was ' + randomNumber + '</li>';
+alert('You got ' + correctAnswers + ' out of 6 correct so far!');
+
+
+// Mulitple choice places visited question
