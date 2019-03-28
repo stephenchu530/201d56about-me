@@ -118,7 +118,7 @@ while (!response && (maxGuesses > 0)) {
   if (response) {
     response = response.split(' ');
     for (let i = 0; i < response.length; i++) {
-      if (placesVisited.indexOf(response[i]) === -1) {
+      if (!placesVisited.includes(response[i])) {
         alert('Not quite right...');
         response = null;
         maxGuesses--;
