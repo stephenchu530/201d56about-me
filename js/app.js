@@ -1,21 +1,26 @@
 'use strict';
-// Keeps track of all correct responses
-let correctAnswers = 0;
 
 // Get User Name and give intro to guessing game
 // Driver code
-let userName = getUserName();
-alert('Hello ' + userName + '! Let\'s play a guessing game about me. We\'ll start with 5 yes/no questions about me!');
-correctAnswers = gameOne(correctAnswers);
-alert('You got ' + correctAnswers + ' out of 5 correct so far!');
-correctAnswers = gameTwo(correctAnswers);
-alert('You got ' + correctAnswers + ' out of 6 correct so far!');
-correctAnswers = gameThree(correctAnswers);
-alert('You got ' + correctAnswers + ' out of 7 correct!');
-if (correctAnswers === 7) {
-  alert('You are amazing!');
-} else {
-  alert('Please try again!');
+function startGame () {
+  // Keeps track of all correct responses
+  let correctAnswers = 0;
+
+  // Get User Name and give intro to guessing game
+  // Driver code
+  let userName = getUserName();
+  alert('Hello ' + userName + '! Let\'s play a guessing game about me. We\'ll start with 5 yes/no questions about me!');
+  correctAnswers = gameOne(correctAnswers);
+  alert('You got ' + correctAnswers + ' out of 5 correct so far!');
+  correctAnswers = gameTwo(correctAnswers);
+  alert('You got ' + correctAnswers + ' out of 6 correct so far!');
+  correctAnswers = gameThree(correctAnswers);
+  alert('You got ' + correctAnswers + ' out of 7 correct!');
+  if (correctAnswers === 7) {
+    alert('You are amazing!');
+  } else {
+    alert('Please try again!');
+  }
 }
 
 //----
