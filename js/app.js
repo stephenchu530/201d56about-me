@@ -93,7 +93,7 @@ while (parseInt(response) !== randomNumber && (maxGuesses > 0)) {
   }
 }
 
-// Results to guess the number game
+// Results for the guess the number game
 if (parseInt(response) === randomNumber) {
   alert('You guessed the number!');
   correctAnswers++;
@@ -104,6 +104,7 @@ if (parseInt(response) === randomNumber) {
 // Displays results of the guess number game
 document.getElementById('guessnumberlist').innerHTML = '<li>The number to guess was ' + randomNumber + '</li>';
 alert('You got ' + correctAnswers + ' out of 6 correct so far!');
+
 
 // Mulitple choice places visited question
 console.log('*** Starting multiple choice game');
