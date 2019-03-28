@@ -69,12 +69,13 @@ alert('You got ' + correctAnswers + ' out of 5 correct so far!');
 console.log('*** Starting guess number game');
 let maxNumber = 15;
 let maxGuesses = 4;
+let guessWord = ' guesses';
 let response = null;
 let randomNumber = Math.floor(Math.random() * Math.floor(maxNumber + 1));
 alert('Let\'s play guess my number game!');
 
 while (parseInt(response) !== randomNumber && (maxGuesses > 0)) {
-  response = prompt('Guess my number between 0 and ' + maxNumber + ' (' + maxGuesses + ' left):');
+  response = prompt('Guess my number between 0 and ' + maxNumber + ' (' + maxGuesses + guessWord + ' remaining)');
   console.log('User guessed: ' + response);
   if (response && !isNaN(response)) {
     if (parseInt(response) > randomNumber) {
@@ -84,6 +85,9 @@ while (parseInt(response) !== randomNumber && (maxGuesses > 0)) {
       alert('Actually, the number is higher');
     }
     maxGuesses--;
+    if (maxGuesses === 1) {
+          guessWord = ' guess'
+    }
   } else {
     alert('Please enter a number!');
   }
@@ -101,12 +105,45 @@ if (parseInt(response) === randomNumber) {
 document.getElementById('guessnumberlist').innerHTML = '<li>The number to guess was ' + randomNumber + '</li>';
 alert('You got ' + correctAnswers + ' out of 6 correct so far!');
 
-
 // Mulitple choice places visited question
 console.log('*** Starting multiple choice game');
-let placesVisited = ['France', 'Japan', 'Germany', 'Italy', 'China', 'Taiwan'];
-let answers = '';
-for (let i = 0; i < placesVisited.length; i++) {
-  answers += (i + 1) + ' ' + placesVisited[i] + '\n';
+let placesVisited = ['Nice', 'Stuggart', 'Taipei'];
+let isRight = false;
+response = null;
+maxGuesses = 6;
+guessWord = ' guesses';
+while (!response && (maxGuesses > 0)) {
+  response = prompt('From the following list, which places have I been to? (write the places separated with a space):\nNice, Tokyo, Stuggart, Rome, Vancouver, Taipei\n(' + maxGuesses + guessWord + ' remaining):');
+  console.log('User responded with: ' + response);
+  if (response) {
+    response = response.split(' ');
+    for (let i = 0; i < response.length; i++) {
+      if (placesVisited.indexOf(response[i]) === -1) {
+        alert('Not quite right...');
+        response = null;
+        maxGuesses--;
+        if (maxGuesses === 1) {
+          guessWord = ' guess'
+        }
+        break;
+      }
+    }
+  } else {
+    alert('Please enter a response!');
+  }
 }
-alert(answers);
+if (response) {
+  alert('Congrats! You figured out where I\'ve been!');
+  correctAnswers++;
+} else {
+  alert('You didn\'t figure it out! I\'ve been to Nice, Stuggart, and Taipei.');
+}
+
+// Displays results of multiple choice
+document.getElementById('multiplechoicelist').innerHTML = '<li>I\'ve been to Nice, Stuggart, and Taipei</li>';
+alert('You got ' + correctAnswers + ' out of 7 correct!');
+if (correctAnswers === 7) {
+  alert('You are amazing!');
+} else {
+  alert('Please try again!');
+}
