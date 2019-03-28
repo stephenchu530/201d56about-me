@@ -30,16 +30,13 @@ let possibleAns = [
   'yes',
   'no'
 ];
-let cue = ' (y/n/yes/no):';
 
 for (let i = 0; i < questionBank.length; i++) {
-  let answer = prompt(questionBank[i] + cue);
+  let answer = prompt(questionBank[i] + ' (y/n/yes/no):');
   console.log('Question: ' + questionBank[i]);
   console.log('User response: ' + answer);
   let idx = -1;
-  if (answer) {
-    idx = possibleAns.indexOf(answer.toLowerCase());
-  }
+  if (answer) { idx = possibleAns.indexOf(answer.toLowerCase()); }
   if (answer && (idx + 1)) {
     if (idx % 2) {
       alert('Wrong!');
