@@ -90,12 +90,20 @@
 // }
 
 'use strict';
+// Keeps track of all correct responses
+let correctAnswers = 0;
 
 // Get User Name and give intro to guessing game
 let userName = getUserName();
-
 alert('Hello ' + userName + '! Let\'s play a guessing game about me. We\'ll start with 5 yes/no questions about me!');
+correctAnswers = gameOne(correctAnswers);
+alert('You got ' + correctAnswers + ' out of 5 correct so far!');
+correctAnswers = gameTwo(correctAnswers);
+alert('You got ' + correctAnswers + ' out of 6 correct so far!');
+// correctAnswers = gameThree(correctAnswers);
 
+
+//Funtion to get username and check for  null and empty string
 function getUserName(){
   let userName = null;
   do {
@@ -106,104 +114,105 @@ function getUserName(){
   } while (userName === null || userName === '');
   return userName;
 }
-// Keeps track of all correct responses
-let correctAnswers = 0;
+//Function to ask first game questions
+function gameOne(correctAnswers){
+  // 5 yes no questionaire; FYI: all answers are yes btw
+  console.log('*** Starting 5 yes/no questions game');
+  let questionBank = [
+    'Do you think I like the color black?',
+    'Could I possibly like to eat sushi?',
+    'Was I in the Air Force?',
+    'Do I like to watch cooking shows?',
+    'Is sleeping my favorite activity?'
+  ];
+  let possibleAns = [
+    'y',
+    'n',
+    'yes',
+    'no'
+  ];
 
-
-// 5 yes no questionaire; FYI: all answers are yes btw
-console.log('*** Starting 5 yes/no questions game');
-let questionBank = [
-  'Do you think I like the color black?',
-  'Could I possibly like to eat sushi?',
-  'Was I in the Air Force?',
-  'Do I like to watch cooking shows?',
-  'Is sleeping my favorite activity?'
-];
-let possibleAns = [
-  'y',
-  'n',
-  'yes',
-  'no'
-];
-
-for (let i = 0; i < questionBank.length; i++) {
-  let answer = prompt(questionBank[i] + ' (y/n/yes/no):');
-  console.log('Question: ' + questionBank[i]);
-  console.log('User response: ' + answer);
-  let idx = -1;
-  if (answer) { idx = possibleAns.indexOf(answer.toLowerCase()); }
-  if (answer && (idx + 1)) {
-    if (idx % 2) {
-      alert('Wrong!');
+  for (let i = 0; i < questionBank.length; i++) {
+    let answer = prompt(questionBank[i] + ' (y/n/yes/no):');
+    console.log('Question: ' + questionBank[i]);
+    console.log('User response: ' + answer);
+    let idx = -1;
+    if (answer) { idx = possibleAns.indexOf(answer.toLowerCase()); }
+    if (answer && (idx + 1)) {
+      if (idx % 2) {
+        alert('Wrong!');
+      } else {
+        alert('Right!');
+        correctAnswers++;
+      }
     } else {
-      alert('Right!');
-      correctAnswers++;
+      alert('Not an acceptable response!');
+      console.log('Not acceptable. Repeating the same question.');
+      i--;
     }
-  } else {
-    alert('Not an acceptable response!');
-    console.log('Not acceptable. Repeating the same question.');
-    i--;
   }
-}
 
-// Display answers to 5 questions and correct answers on the page
-let listItemsQuestions = '';
+  // Display answers to 5 questions and correct answers on the page
+  let listItemsQuestions = '';
 
-for (let i = 0; i < questionBank.length; i++) {
-  listItemsQuestions += '<li>' + questionBank[i] + ' YES!</li>\n';
-}
-document.getElementById('fivequestionlist').innerHTML = listItemsQuestions;
-alert('You got ' + correctAnswers + ' out of 5 correct so far!');
-
-
-//Favorite number game
-console.log('*** Starting guess number game');
-let maxNumber = 15;
-let maxGuesses = 4;
-let guessWord = ' guesses';
-let response = null;
-let randomNumber = Math.floor(Math.random() * Math.floor(maxNumber + 1));
-alert('Let\'s play guess my number game!');
-
-while (parseInt(response) !== randomNumber && (maxGuesses > 0)) {
-  response = prompt('Guess my number between 0 and ' + maxNumber + ' (' + maxGuesses + guessWord + ' remaining)');
-  console.log('User guessed: ' + response);
-  if (response && !isNaN(response)) {
-    if (parseInt(response) > randomNumber) {
-      alert('Mmmm... the number is lower');
-    }
-    if (parseInt(response) < randomNumber) {
-      alert('Actually, the number is higher');
-    }
-    maxGuesses--;
-    if (maxGuesses === 1) {
-      guessWord = ' guess';
-    }
-  } else {
-    alert('Please enter a number!');
+  for (let i = 0; i < questionBank.length; i++) {
+    listItemsQuestions += '<li>' + questionBank[i] + ' YES!</li>\n';
   }
+  document.getElementById('fivequestionlist').innerHTML = listItemsQuestions;
+  return correctAnswers;
 }
 
 
-// Results for the guess the number game
-if (parseInt(response) === randomNumber) {
-  alert('You guessed the number!');
-  correctAnswers++;
-} else {
-  alert('You couldn\'t guess the number. The number was ' + randomNumber);
-}
+//  Favorite number game
+function gameTwo(correctAnswers){
+  console.log('*** Starting guess number game');
+  let maxNumber = 15;
+  let maxGuesses = 4;
+  let guessWord = ' guesses';
+  let response = null;
+  let randomNumber = Math.floor(Math.random() * Math.floor(maxNumber + 1));
+  alert('Let\'s play guess my number game!');
 
-// Displays results of the guess number game
-document.getElementById('guessnumberlist').innerHTML = '<li>The number to guess was ' + randomNumber + '</li>';
-alert('You got ' + correctAnswers + ' out of 6 correct so far!');
+  while (parseInt(response) !== randomNumber && (maxGuesses > 0)) {
+    response = prompt('Guess my number between 0 and ' + maxNumber + ' (' + maxGuesses + guessWord + ' remaining)');
+    console.log('User guessed: ' + response);
+    if (response && !isNaN(response)) {
+      if (parseInt(response) > randomNumber) {
+        alert('Mmmm... the number is lower');
+      }
+      if (parseInt(response) < randomNumber) {
+        alert('Actually, the number is higher');
+      }
+      maxGuesses--;
+      if (maxGuesses === 1) {
+        guessWord = ' guess';
+      }
+    } else {
+      alert('Please enter a number!');
+    }
+  }
+
+
+  // Results for the guess the number game
+  if (parseInt(response) === randomNumber) {
+    alert('You guessed the number!');
+    correctAnswers++;
+  } else {
+    alert('You couldn\'t guess the number. The number was ' + randomNumber);
+  }
+
+  // Displays results of the guess number game
+  document.getElementById('guessnumberlist').innerHTML = '<li>The number to guess was ' + randomNumber + '</li>';
+  return correctAnswers;
+}
 
 
 // Mulitple choice places visited question
 console.log('*** Starting multiple choice game');
 let placesVisited = ['Nice', 'Stuggart', 'Taipei'];
-response = null;
-maxGuesses = 6;
-guessWord = ' guesses';
+let response = null;
+let maxGuesses = 6;
+let guessWord = ' guesses';
 while (!response && (maxGuesses > 0)) {
   response = prompt('From the following list, which places have I been to? (write the places separated with a space):\nNice, Tokyo, Stuggart, Rome, Vancouver, Taipei\n(' + maxGuesses + guessWord + ' remaining):');
   console.log('User responded with: ' + response);
