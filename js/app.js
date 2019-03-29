@@ -1,13 +1,12 @@
 'use strict';
 
-// Get User Name and give intro to guessing game
-// Driver code
-function startGame () {
+
+// Driver code: function called from html
+function startGame () { // eslint-disable-line no-unused-vars
   // Keeps track of all correct responses
   let correctAnswers = 0;
 
   // Get User Name and give intro to guessing game
-  // Driver code
   let userName = getUserName();
   alert('Hello ' + userName + '! Let\'s play a guessing game about me. We\'ll start with 5 yes/no questions about me!');
   correctAnswers = gameOne(correctAnswers);
@@ -22,6 +21,7 @@ function startGame () {
     alert('Please try again!');
   }
 }
+
 
 //----
 //Funtion to get username and check for  null and empty string
