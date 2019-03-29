@@ -139,7 +139,7 @@ function gameThree(correctAnswers){
     if (response) {
       response = response.split(' ');
       for (let i = 0; i < response.length; i++) {
-        if (!placesVisited.includes(response[i])) {
+        if (!placesVisited.map(function(x) { return x.toLowerCase(); }).includes(response[i].toLowerCase())) {
           alert('Not quite right...');
           response = null;
           maxGuesses--;
@@ -164,4 +164,3 @@ function gameThree(correctAnswers){
   document.getElementById('multiplechoicelist').innerHTML = '<li>I\'ve been to Nice, Stuggart, and Taipei</li>';
   return correctAnswers;
 }
-
