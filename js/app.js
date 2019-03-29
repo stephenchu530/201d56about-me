@@ -134,7 +134,7 @@ function gameThree(correctAnswers){
   let maxGuesses = 6;
   let guessWord = ' guesses';
   while (!response && (maxGuesses > 0)) {
-    response = prompt('From the following list, which places have I been to? (write the places separated with a space):\nNice, Tokyo, Stuggart, Rome, Vancouver, Taipei\n(' + maxGuesses + guessWord + ' remaining):');
+    response = prompt('From the following list, which places have I been to? (write the places separated with a space. NO COMMAS):\nNice, Tokyo, Stuggart, Rome, Vancouver, Taipei\n(' + maxGuesses + guessWord + ' remaining):');
     console.log('User responded with: ' + response);
     if (response) {
       response = response.split(' ');
