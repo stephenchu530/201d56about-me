@@ -4,9 +4,13 @@ header {
 body {
   background-color: wheat;
 }
+h1, h2, h3, p, ul, ol, li, button {
+  margin: 10px;
+  padding: 10px;
+}
 h1 {
   color: lightcoral;
-  font-weight: bolder;
+  font-weight: bold;
   font-size: 2em;
 }
 h2 {
@@ -20,6 +24,19 @@ h3 {
 ol {
   list-style-type: decimal;
 }
-li {
-  margin-left: 20px;
+section, article {
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+section {
+  display: inline-block;
+  vertical-align: middle;
+  width: 45%;
+  min-height: 1000px;
+}
+button {
+  margin: 0 auto;
+  display: block;
 }
