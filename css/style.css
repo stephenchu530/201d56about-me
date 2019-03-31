@@ -2,14 +2,14 @@ header {
   background-image: url('../img/bright-countryside-dawn-302804.jpg');
 }
 body {
-  background-color: wheat;
+  background-color: #e6ccb3;
 }
 h1, h2, h3, p, ul, ol, li, button {
   margin: 10px;
   padding: 10px;
 }
 h1 {
-  color: lightcoral;
+  color: #009933;
   font-weight: bold;
   font-size: 3em;
 }
@@ -18,7 +18,7 @@ h2 {
   font-size: 1.5em;
 }
 h3 {
-  color: green;
+  color: #94143C;
   font-size: 1em;
 }
 ol {
@@ -30,20 +30,20 @@ header h1 {
 section, article {
   margin: 10px;
   padding: 10px;
-  border: 2px solid red;
+  border: 2px solid #392613;
   border-radius: 10px;
 }
 section {
+  background-image: url('../img/grass.jpg');
   display: inline-block;
   vertical-align: middle;
   width: 45%;
   min-height: 960px;
-  background-color: rgba(250, 250, 250, .2);
 }
 button {
   margin: 0 auto;
   display: block;
 }
 article {
-  background-color: rgba(250, 250, 250, .2);
+  background-color: rgba(250, 250, 250, .5);
 }
