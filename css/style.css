@@ -35,8 +35,12 @@ section {
   vertical-align: middle;
   width: 45%;
   min-height: 1000px;
+  background-color: rgba(250, 250, 250, .2);
 }
 button {
   margin: 0 auto;
   display: block;
+}
+article {
+  background-color: rgba(250, 250, 250, .2);
 }
